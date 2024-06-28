@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "209303354675",
+    "project_id": "learnflavours-3a3a3",
+    "storage_bucket": "learnflavours-3a3a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209303354675:android:006a70daa8d20a49989246",
+        "android_client_info": {
+          "package_name": "com.example.network_issue_handle.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR25C0hwIzQKOFb4LmNA3o8Fk_E-jqsF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
