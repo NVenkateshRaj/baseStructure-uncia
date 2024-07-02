@@ -22,6 +22,7 @@ class AppColor {
   static const Color black = Color(0xFF000000);
   static const Color green = Color(0xFF14AE5C);
   static const Color buttonWithOpacity = Color(0xFFFF9E2C);
+  //static const Color buttonWithOpacity = Color(0xFFFF9E2C);
 
   static const MaterialColor primaryColor = MaterialColor(
     0xFF800200,

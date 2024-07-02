@@ -13,6 +13,7 @@ class CommonButton extends StatelessWidget{
   final TextStyle? textStyle;
   final Function(bool value)? onHover;
   final VoidCallback? longPress;
+  final List<BoxShadow>? boxShadow;
 
   const CommonButton({
     super.key,
@@ -23,7 +24,8 @@ class CommonButton extends StatelessWidget{
     this.isOutLine = false,
     this.textStyle,
     this.onHover,
-    this.longPress
+    this.longPress,
+    this.boxShadow,
   });
 
   @override
@@ -31,7 +33,7 @@ class CommonButton extends StatelessWidget{
     return Container(
       width: double.maxFinite,
       decoration: BoxDecoration(
-        boxShadow: [
+        boxShadow: boxShadow ?? [
           BoxShadow(
             color: AppColor.buttonWithOpacity.withOpacity(0.1),
             spreadRadius: 0,
@@ -50,8 +52,8 @@ class CommonButton extends StatelessWidget{
           backgroundColor: buttonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.sp),
-            side: const BorderSide(
-              color: AppColor.primary,
+            side:  BorderSide(
+              color: borderColor,
               width: 1.0,
             ),
           ),

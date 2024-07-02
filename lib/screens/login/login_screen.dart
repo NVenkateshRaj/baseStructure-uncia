@@ -40,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen>{
   int firstValue = 0;
   int secondValue = 0;
   LoginBloc? loginBloc;
+  List<String> testList = ["1","34","445"];
 
   @override
   void initState() {
@@ -61,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen>{
    return BlocBuilder<LoginBloc, LoginState>(
         builder: (BuildContext context, LoginState state) {
           return Scaffold(
+            backgroundColor: AppColor.background,
             appBar: const CommonAppbar(),
             body: TapOutsideUnFocus(
               child: SingleChildScrollView(
@@ -143,8 +145,11 @@ class _LoginScreenState extends State<LoginScreen>{
                           CommonButton(
                             buttonText: Strings.login,
                             onPressed: (){},
-                            borderColor: buttonColorChange ?  AppColor.primary : AppColor.disabledColor.withOpacity(0.7),
-                            buttonColor: buttonColorChange ?  AppColor.primary : AppColor.disabledColor.withOpacity(0.7),
+                            borderColor:  buttonColorChange ? AppColor.primary : AppColor.buttonWithOpacity.withOpacity(0.5),
+                            buttonColor: buttonColorChange ? AppColor.primary : AppColor.buttonWithOpacity.withOpacity(0.5),
+                            boxShadow: buttonColorChange ? null :  [
+                               BoxShadow(color: AppColor.buttonWithOpacity.withOpacity(0.1),offset:  const Offset(0,1),blurRadius: 8)
+                            ],
                           ),
                         ],
                       )
