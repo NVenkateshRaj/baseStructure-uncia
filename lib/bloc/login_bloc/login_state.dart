@@ -5,6 +5,7 @@ abstract class LoginState extends Equatable{
   List<Object> get props => [];
 }
 
+
 class LogInInitState extends LoginState {}
 
 class LogInInLoading extends LoginState{}

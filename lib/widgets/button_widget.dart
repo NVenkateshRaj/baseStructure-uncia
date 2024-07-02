@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:network_issue_handle/constants/colors.dart';
 import 'package:network_issue_handle/constants/styles.dart';
 
@@ -46,9 +47,9 @@ class CommonButton extends StatelessWidget{
         onHover:onHover!=null ? (hover)=>  onHover!.call(hover) : null,
         onLongPress: longPress!=null ? ()=> longPress!() : null,
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColor.primary,
+          backgroundColor: buttonColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(8.sp),
             side: const BorderSide(
               color: AppColor.primary,
               width: 1.0,

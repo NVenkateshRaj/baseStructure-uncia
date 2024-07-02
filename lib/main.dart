@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            initialRoute:  '/',
+            initialRoute:  Routes.login,
             builder: _setupDialogManager,
             debugShowCheckedModeBanner: false,
             navigatorKey: navigationService.navigatorKey,
@@ -61,7 +61,6 @@ class MyApp extends StatelessWidget {
     return Navigator(
       key: locator<DialogService>().dialogNavigationKey,
       onGenerateRoute: (settings) => MaterialPageRoute(builder: (context) {
-        final MediaQueryData data = MediaQuery.of(context);
         return DialogWidget(
             child: widget
         );

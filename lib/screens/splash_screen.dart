@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_bloc.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_events.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_state.dart';
-import 'package:network_issue_handle/locator.dart';
-import 'package:network_issue_handle/routes/router.dart';
+
 
 
 class SplashScreen extends StatefulWidget{
@@ -35,7 +34,6 @@ class _SpalshScreenState extends State<SplashScreen>{
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(
         builder: (BuildContext context, LoginState state) {
-
           return  Scaffold(
             backgroundColor: Colors.blue,
             appBar: AppBar(title: const Text("Splash Screen"),),

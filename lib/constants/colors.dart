@@ -12,7 +12,8 @@ class AppColor {
   static const Color redColor= Color(0xFFEB5757);
   static const Color background = Color(0xFFFEFEFA);
   static const Color buttonColor = Color(0xFF800200);
-  static const Color borderColor = Color(0xFFD1D5DB);
+  static const Color disabledColor = Color(0x99ff831e);
+  static const Color borderColor = Color(0xFF6B7280);
   static const Color swipeIndicator = Color(0xFFe9eaee);
   static const Color barrierColor = Color(0xb3000000);
   static const Color titleBlack = Color(0xFF001533);

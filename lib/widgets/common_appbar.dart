@@ -4,7 +4,10 @@ import 'package:network_issue_handle/constants/colors.dart';
 import 'package:network_issue_handle/constants/images.dart';
 
 class CommonAppbar extends StatelessWidget implements PreferredSizeWidget{
-  const CommonAppbar({super.key});
+  final bool isSearch;
+  final Function(String)? onChanged;
+  const CommonAppbar({super.key,this.isSearch = false,this.onChanged});
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,12 @@ class CommonAppbar extends StatelessWidget implements PreferredSizeWidget{
         children: [
           Image.asset(Images.iciciLogo,height: 32.h,width: 32.w,),
           Expanded(child: Container()),
-          Icon(Icons.search,color: AppColor.white,size: 24.sp,),
+          isSearch ? InkWell(
+            onTap: (){
+
+            },
+            child: Icon(Icons.search,color: AppColor.white,size: 24.sp,),
+          ) : Container(),
           Stack(
             children: [
               Icon(Icons.notifications_none_outlined,color: AppColor.white,size: 24.sp,),

@@ -14,6 +14,10 @@ class LoginBloc extends Bloc<LoginEvents,LoginState>{
 
   LoginBloc({required this.logInRepo}): super(LogInInitState()){
     on<LoginEvents>((events,emit) async{
+      if(events == LoginEvents.updateState){
+        emit(LogInInErrorState());
+        emit(LogInUpdateState());
+      }
       if(events == LoginEvents.alreadyLogin){
         await checkLoginDetails();
       } else if(events == LoginEvents.loginButtonTap){
@@ -29,7 +33,7 @@ class LoginBloc extends Bloc<LoginEvents,LoginState>{
 
   checkLoginDetails(){
     Future.delayed(const Duration(milliseconds: 5000),(){
-      navigationService.pushNamed(Routes.dashboard);
+      navigationService.pushNamed(Routes.login);
     });
   }
 

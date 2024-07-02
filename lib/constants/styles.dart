@@ -66,9 +66,14 @@ class AppStyle {
 
 
 class AppTextStyle {
+  static TextStyle header = TextStyle(
+      fontSize: AppFontSize.dp24,
+      fontWeight: FontWeight.w700,
+      color: AppColor.text
+  );
 
   static TextStyle headerMedium = TextStyle(
-      fontSize: AppFontSize.dp28,
+      fontSize: AppFontSize.dp20,
       fontWeight: FontWeight.w400,
       color: AppColor.text
   );
@@ -87,8 +92,62 @@ class AppTextStyle {
 
   static TextStyle button = TextStyle(
       fontSize: AppFontSize.dp16,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w500,
       color: AppColor.white
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   );
 
   static TextStyle subheading = TextStyle(
