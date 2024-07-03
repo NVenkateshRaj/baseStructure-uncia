@@ -1,7 +1,4 @@
-import 'dart:async';
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,11 +10,10 @@ import 'package:network_issue_handle/constants/colors.dart';
 import 'package:network_issue_handle/constants/images.dart';
 import 'package:network_issue_handle/constants/strings.dart';
 import 'package:network_issue_handle/constants/styles.dart';
-import 'package:network_issue_handle/service/api_service/storage_service.dart';
 import 'package:network_issue_handle/widgets/button_widget.dart';
 import 'package:network_issue_handle/widgets/common_appbar.dart';
-import 'package:network_issue_handle/widgets/common_divider.dart';
 import 'package:network_issue_handle/widgets/common_text_field.dart';
+import 'package:network_issue_handle/widgets/header_widget.dart';
 import 'package:network_issue_handle/widgets/tap_outside.dart';
 
 class LoginScreen extends StatefulWidget{
@@ -88,8 +84,7 @@ class _LoginScreenState extends State<LoginScreen>{
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(Strings.welcome,style: AppTextStyle.bold,),
-                            const CommonDivider(dividerColor: AppColor.divider,),
+                           const HeaderWidget(title: Strings.welcome,),
                             SizedBox(height: 10.h,),
                             CommonTextField(
                               textFieldTitle: Strings.userName,

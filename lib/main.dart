@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_bloc.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_repo.dart';
+import 'package:network_issue_handle/constants/styles.dart';
 import 'package:network_issue_handle/firebase_options.dart';
 import 'package:network_issue_handle/locator.dart';
 import 'package:network_issue_handle/routes/router.dart';
@@ -43,10 +44,7 @@ class MyApp extends StatelessWidget {
         child: ScreenUtilInit(
           builder: (context,child) => MaterialApp(
             title: 'Demo',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+            theme: AppStyle.appTheme,
             initialRoute:  Routes.login,
             builder: _setupDialogManager,
             debugShowCheckedModeBanner: false,

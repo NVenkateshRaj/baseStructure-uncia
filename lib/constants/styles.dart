@@ -11,10 +11,10 @@ class AppStyle {
 
   static final ThemeData appTheme = ThemeData(
     primaryColor: AppColor.primary,
+    useMaterial3: true,
     primaryColorDark: AppColor.primaryDark,
     primarySwatch: AppColor.primaryColor,
     dividerColor: AppColor.divider,
-    unselectedWidgetColor: AppColor.borderColor,
     canvasColor: AppColor.white,
     indicatorColor: AppColor.primaryDark,
     textSelectionTheme: TextSelectionThemeData(
@@ -32,6 +32,18 @@ class AppStyle {
       titleSpacing: 0,
       centerTitle: false,
     ),
+
+    radioTheme: RadioThemeData(
+      fillColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
+        if (states.contains(WidgetState.disabled)) {
+          return AppColor.borderColor;
+        }
+        return AppColor.primary;
+      }),
+      splashRadius: 3,
+      materialTapTargetSize: MaterialTapTargetSize.padded
+    ),
+
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
         backgroundColor: AppColor.primary
     ),
