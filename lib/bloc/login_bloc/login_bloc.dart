@@ -2,8 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_events.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_repo.dart';
 import 'package:network_issue_handle/bloc/login_bloc/login_state.dart';
+import 'package:network_issue_handle/constants/end_points.dart';
+import 'package:network_issue_handle/constants/strings.dart';
 import 'package:network_issue_handle/locator.dart';
 import 'package:network_issue_handle/routes/router.dart';
+import 'package:network_issue_handle/service/api_service/storage_service.dart';
 
 class LoginBloc extends Bloc<LoginEvents,LoginState>{
 
@@ -22,11 +25,8 @@ class LoginBloc extends Bloc<LoginEvents,LoginState>{
         await checkLoginDetails();
       } else if(events == LoginEvents.loginButtonTap){
         await loginButtonTapped(emit);
-      }
-      else if(events == LoginEvents.registerButtonTap){
-        await registerButtonTapped(emit);
-      }else{
-
+      } else if (events == LoginEvents.fetchData){
+        await fetchData(emit);
       }
     });
   }
@@ -37,11 +37,44 @@ class LoginBloc extends Bloc<LoginEvents,LoginState>{
     });
   }
 
-  loginButtonTapped(Emitter<LoginState> emit)async{}
+  loginButtonTapped(Emitter<LoginState> emit)async{
+    try{
+      isLoading = true;
+      emit(LogInInLoading());
+      String subUrl = EndPoints.auth+EndPoints.login;
+      var loginResponse = await logInRepo.login(subUrl, body);
+      if(loginResponse.token!.isNotEmpty){
+        print("Auth token called ${loginResponse.token!}");
+        await SecureStorageService.addValue(Strings.token, loginResponse.token!);
+      }
 
-  registerButtonTapped(Emitter<LoginState> emit)async{
+      isLoading = false;
+      emit(LogInInErrorState());
+      emit(LogInInSuccessState(loginResponse: loginResponse));
+    }catch(e){
+      errorHandle(e,emit);
+    }
+  }
 
+  fetchData(Emitter<LoginState> emit)async{
+    try{
+      isLoading = true;
+      emit(LogInInLoading());
+      String subUrl = EndPoints.auth+EndPoints.me;
+      var userResponse = await logInRepo.fetchUserDetails(subUrl);
+      isLoading = false;
+      print("Response Value is");
+      print(userResponse.toJson());
+      emit(LogInInErrorState());
+      emit(LogInInUserDetailsState(userDetails: userResponse));
+    }catch(e){
+      errorHandle(e,emit);
+    }
   }
 
 
+  errorHandle(dynamic e,Emitter<LoginState> emit){
+    isLoading = false;
+    emit(LogInInErrorState());
+  }
 }

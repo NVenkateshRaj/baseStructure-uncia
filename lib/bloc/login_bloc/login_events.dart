@@ -3,4 +3,5 @@ enum LoginEvents{
   loginButtonTap,
   registerButtonTap,
   updateState,
+  fetchData
 }

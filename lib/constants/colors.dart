@@ -5,13 +5,12 @@ class AppColor {
   static const Color primary = Color(0xFFFF831E);
   static const Color appBarColor = Color(0xFFE56600);
   static const Color primaryDark = Color(0xFF002539);
-  static const Color divider = Color(0xFFe8eaed);
+  static const Color divider = Color(0xFFD9D9D9);
   static const Color primaryDivider = Color(0xfff4dbc3);
   static const Color text = Color(0xFF374151);
   static const Color secondaryText = Color(0xFF818181);
   static const Color redColor= Color(0xFFEB5757);
   static const Color background = Color(0xFFFEFEFA);
-  static const Color buttonColor = Color(0xFF800200);
   static const Color disabledColor = Color(0x99ff831e);
   static const Color borderColor = Color(0xFF6B7280);
   static const Color swipeIndicator = Color(0xFFe9eaee);
@@ -21,8 +20,8 @@ class AppColor {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color green = Color(0xFF14AE5C);
+  static const Color error = Color(0xFFAC0103);
   static const Color buttonWithOpacity = Color(0xFFFF9E2C);
-  //static const Color buttonWithOpacity = Color(0xFFFF9E2C);
 
   static const MaterialColor primaryColor = MaterialColor(
     0xFF800200,

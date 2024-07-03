@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:network_issue_handle/constants/colors.dart';
 import 'package:network_issue_handle/constants/font_size.dart';
+import 'package:network_issue_handle/constants/strings.dart';
 
 
 class AppStyle {
 
-  static const String fontFamily = "ProximaNova";
+  static const String fontFamily = Strings.interFontFamily;
 
   static final ThemeData appTheme = ThemeData(
     primaryColor: AppColor.primary,
@@ -66,7 +67,8 @@ class AppStyle {
 
 
 class AppTextStyle {
-  static TextStyle header = TextStyle(
+  
+  static TextStyle bold = TextStyle(
       fontSize: AppFontSize.dp24,
       fontWeight: FontWeight.w700,
       color: AppColor.text
@@ -78,83 +80,24 @@ class AppTextStyle {
       color: AppColor.text
   );
 
-  static TextStyle titleMedium = TextStyle(
+  static TextStyle regular = TextStyle(
       fontSize: AppFontSize.dp20,
       fontWeight: FontWeight.w400,
       color: AppColor.text
   );
 
-  static TextStyle subtitleRegular = TextStyle(
+  static TextStyle medium = TextStyle(
       fontSize: AppFontSize.dp16,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
       color: AppColor.text
   );
 
   static TextStyle button = TextStyle(
       fontSize: AppFontSize.dp16,
-      fontWeight: FontWeight.w500,
+      fontWeight: FontWeight.w700,
       color: AppColor.white
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   );
 
-  static TextStyle subheading = TextStyle(
-    fontWeight: FontWeight.w700,
-    fontSize: AppFontSize.dp16,
-    color: AppColor.text,
-  );
 
   static TextStyle bodyRegular = TextStyle(
     fontWeight:FontWeight.w500,
@@ -171,7 +114,7 @@ class AppTextStyle {
   static TextStyle hintTextStyle = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: AppFontSize.dp14,
-    color: AppColor.hintTextColor,
+    color: AppColor.secondaryText,
   );
 
   static TextStyle breadCrumbUnSelect = TextStyle(

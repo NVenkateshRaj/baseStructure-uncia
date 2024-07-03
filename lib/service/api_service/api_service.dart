@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:network_issue_handle/constants/strings.dart';
 import 'package:network_issue_handle/locator.dart';
 import 'package:network_issue_handle/routes/router.dart';
+import 'package:network_issue_handle/service/api_service/storage_service.dart';
 
 class ApiService{
-  static const _baseUrl = "";
+  static const _baseUrl = "https://dummyjson.com/";
   static const _connectionTimeout = 10000;
   static const _receiveTimeout = 10000;
 
@@ -44,7 +47,7 @@ class ApiService{
   }
 
   getCurrentBaseUrl(String path){
-    return "";
+    return _baseUrl;
   }
 
   Future<dynamic> get(String path, {dynamic body,BuildContext? context,}) async {
@@ -113,26 +116,27 @@ class ApiService{
   getHeaders(bool? isMultipart, {dynamic postData, BuildContext? context}) async {
     var header = {
       'Content-Type': isMultipart!=null && isMultipart ? 'multipart/form-data' : "application/json"
-      "charset=utf-8"
     };
-    // var authToken;
-    // if (authToken != null) {
-    //   parseJwt(authToken);
-    //   header["authorization"] = "bearer $authToken";
-    // } else {
-    //
-    // }
+
+    String authToken = await SecureStorageService.getValue(Strings.token) ?? "";
+    if(authToken.isNotEmpty){
+      parseJwt(authToken);
+      header['Authorization'] = 'Bearer $authToken';
+    }
     return header;
   }
 
-
   Map<String, dynamic> parseJwt(String token) {
     final parts = token.split('.');
-    if (parts.length != 3) {}
+    if (parts.length != 3) {
+      // throw Exception('invalid token');
+    }
 
     final payload = _decodeBase64(parts[1]);
     final payloadMap = json.decode(payload);
-    if (payloadMap is! Map<String, dynamic>) {}
+    if (payloadMap is! Map<String, dynamic>) {
+      // throw Exception('invalid payload');
+    }
 
     return payloadMap;
   }
@@ -155,6 +159,7 @@ class ApiService{
 
     return utf8.decode(base64Url.decode(output));
   }
+
 
   handleError(DioException error)async{
     print("Error is $error");

@@ -57,9 +57,9 @@ class _DialogWidgetState extends State<DialogWidget> {
                 backgroundColor: Colors.white,
                 title: Text(
                   request.title ?? '',
-                  style: AppTextStyle.titleMedium,
+                  style: AppTextStyle.regular,
                 ),
-                content: Text(request.description ?? '', style: AppTextStyle.subtitleRegular),
+                content: Text(request.description ?? '', style: AppTextStyle.medium),
                 actions: <Widget>[
                   MaterialButton(
                     child: Text(
@@ -88,9 +88,9 @@ class _DialogWidgetState extends State<DialogWidget> {
               child: AlertDialog(
                 title: Text(
                   request.title  ?? '',
-                  style: AppTextStyle.titleMedium,
+                  style: AppTextStyle.regular,
                 ),
-                content: Text(request.description  ?? '', style: AppTextStyle.subtitleRegular),
+                content: Text(request.description  ?? '', style: AppTextStyle.medium),
                 actions: <Widget>[
 
                   if (request.secondaryButtonTitle != null) MaterialButton(
@@ -143,7 +143,7 @@ class _DialogWidgetState extends State<DialogWidget> {
 
 
 
-                    Text(request.description  ?? '', textAlign: TextAlign.center, textScaler: const TextScaler.linear(1), style: AppTextStyle.subtitleRegular,),
+                    Text(request.description  ?? '', textAlign: TextAlign.center, textScaler: const TextScaler.linear(1), style: AppTextStyle.medium,),
 
 
                     ///Need to write a common button for this widget

@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
 
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => LoginBloc(logInRepo: LoginRepoImplement())),
+          BlocProvider(create: (context) => LoginBloc(logInRepo: LoginRepoService())),
         ],
         child: ScreenUtilInit(
           builder: (context,child) => MaterialApp(
